@@ -9,12 +9,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("gui/main.fxml"));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("gui/img/icon.png")));
         primaryStage.setTitle("Monitor");
         primaryStage.setScene(new Scene(root));
-        primaryStage.getIcons().add(new Image("gui/img/mini.png"));
         primaryStage.show();
     }
 
