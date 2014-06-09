@@ -7,6 +7,15 @@
     -fx-background-color: -mid-gray;
 }
 
+.toptext {
+    -fx-font-size: 24px;
+    /*-fx-font-family: "Cambria Math";*/
+    -fx-font-family: "Cooper Black";
+    -fx-fill: #818181;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+   /*-fx-background-color: rgb(216, 222, 227);*/
+}
+
 .side-menu-bar {
     -fx-base: rgb(39, 40, 40);
     /*-fx-font-size: 12pt;*/
