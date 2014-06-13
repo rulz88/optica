@@ -101,8 +101,9 @@
                 <Tooltip text="Ayuda: Brinda soporte para la utilización del sistema."/>
             </tooltip>
         </Button>
-        <Button contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#exitClicked"
-                prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
+        <Button fx:id="close" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#exitClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
+                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
             <graphic>
                 <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#exitClicked"
                            pickOnBounds="true" preserveRatio="true">
@@ -111,9 +112,9 @@
             </graphic>
         </Button>
     </VBox>
-    <Pane fx:id="containerPane" layoutX="140.0" prefHeight="570.0" prefWidth="1017.0" AnchorPane.bottomAnchor="30.0"
-          AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="0.0">
-        <Text fontSmoothingType="LCD" layoutX="103.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0"
+    <Pane fx:id="containerPane" layoutX="140.0" prefHeight="570.0" prefWidth="1060.0" AnchorPane.bottomAnchor="30.0"
+          AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Text fontSmoothingType="LCD" layoutX="283.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0"
               styleClass="toptext" text="LABORATORIO DE ÓPTICA APLICADA"/>
         <AnchorPane id="AnchorPane" fx:id="chartArea" layoutX="23.0" layoutY="70.0" prefHeight="280.0"
                     prefWidth="872.0" stylesheets="@style/CurveFittedChart.css">

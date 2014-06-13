@@ -55,6 +55,7 @@ public class Controller implements Initializable {
     @FXML private Button stat;
     @FXML private Button set;
     @FXML private Button help;
+    @FXML private Button close;
 
     @FXML private Label clock;
 
@@ -176,6 +177,13 @@ public class Controller implements Initializable {
                 src = "gui/img/help2.png";
             else if(mouseEvent.getEventType() == MouseEvent.MOUSE_EXITED)
                 src = "gui/img/help.png";
+        }
+
+        if(id.equals("close")) {
+            if(mouseEvent.getEventType() == MouseEvent.MOUSE_ENTERED)
+                src = "gui/img/exit2.png";
+            else if(mouseEvent.getEventType() == MouseEvent.MOUSE_EXITED)
+                src = "gui/img/exit.png";
         }
 
         // Cambia el icono al que esta en la ruta especificada por 'src'
