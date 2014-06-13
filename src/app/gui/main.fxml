@@ -1,164 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import java.lang.*?>
 <?import java.net.URL?>
-<AnchorPane id="AnchorPane" fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<AnchorPane id="AnchorPane" fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
     <stylesheets>
-        <URL value="@style/style.css" />
+        <URL value="@style/style.css"/>
     </stylesheets>
-   <children>
-       <VBox alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="139.0" spacing="0.0" styleClass="side-menu-bar" stylesheets="@style/style.css">
-           <padding>
-               <Insets bottom="3.0" />
-           </padding>
-          <children>
-              <Region prefHeight="23.0" prefWidth="160.0" />
-              <ImageView fitHeight="126.0" fitWidth="131.25" pickOnBounds="true" preserveRatio="true">
-                 <image>
-                     <Image url="@img/uni.png" />
-                 </image>
-              </ImageView>
-              <Region prefHeight="23.0" prefWidth="160.0" />
-              <Button fx:id="file" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#fileClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
-                  <graphic>
-                      <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@img/file.png" />
-                         </image>
-                      </ImageView>
-                  </graphic>
-               <tooltip>
-                  <Tooltip text="Archivo de datos: está opción podrá revisar la información generada por los sensores." />
-               </tooltip>
-              </Button>
-              <Button fx:id="temp" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#tempClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
-                  <graphic>
-                      <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#tempClicked" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@img/temp.png" />
-                         </image>
-                      </ImageView>
-                  </graphic>
-               <tooltip>
-                  <Tooltip text="Temperatura: Muestra los registros del monitoreo de temperatura." />
-               </tooltip>
-              </Button>
-              <Button fx:id="pre" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#pressureClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
-                  <graphic>
-                      <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#pressureClicked" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@img/pressure.png" />
-                         </image>
-                      </ImageView>
-                  </graphic>
-               <tooltip>
-                  <Tooltip text="Presión: Mestra los registro del monitoreo de presión." />
-               </tooltip>
-              </Button>
-              <Button fx:id="stat" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#statClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
-                  <graphic>
-                      <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#statClicked" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@img/stat.png" />
-                         </image>
-                      </ImageView>
-                  </graphic>
-               <tooltip>
-                  <Tooltip text="Estadísticas: Muestra un resumen de los monitoreos de presion y temperatura." />
-               </tooltip>
-              </Button>
-              <Button fx:id="set" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#settingsClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
-                  <graphic>
-                      <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#settingsClicked" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@img/settings.png" />
-                         </image>
-                      </ImageView>
-                  </graphic>
-               <tooltip>
-                  <Tooltip text="Configuracion: Herramientas del sistema en general." />
-               </tooltip>
-              </Button>
-              <Button fx:id="help" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#helpClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
-                  <graphic>
-                      <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@img/help.png" />
-                         </image>
-                      </ImageView>
-                  </graphic>
-               <tooltip>
-                  <Tooltip text="Ayuda: Brinda soporte para la utilización del sistema." />
-               </tooltip>
-              </Button>
-              <Button contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#exitClicked" prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
-                  <graphic>
-                      <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#exitClicked" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@img/exit.png" />
-                         </image>
-                      </ImageView>
-                  </graphic>
-              </Button>
-          </children>
-       </VBox>
-       <Pane fx:id="containerPane" layoutX="140.0" prefHeight="570.0" prefWidth="1017.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="0.0">
-          <children>
-              <Text fontSmoothingType="LCD" layoutX="103.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="toptext" text="LABORATORIO DE ÓPTICA APLICADA" />
-              <AnchorPane id="AnchorPane" layoutX="23.0" layoutY="70.0" prefHeight="280.0" prefWidth="872.0" styleClass="fondoBottonAnchorPanel">
-                  <children>
-                      <Button fx:id="button" layoutX="613.0" layoutY="84.0" onAction="#AccionPintar" prefHeight="45.0" prefWidth="250.0" styleClass="boton" text="Dibujar Función !!" />
-                      <LineChart fx:id="graph" layoutY="160.0" prefHeight="329.0" prefWidth="872.0">
-                          <xAxis>
-                              <NumberAxis label="x" tickUnit="1.0" fx:id="x" />
-                          </xAxis>
-                          <yAxis>
-                              <NumberAxis label="f(x)" side="LEFT" tickUnit="1.0" />
-                          </yAxis>
-                      </LineChart>
-                      <Label layoutX="65.0" layoutY="97.0" text="Rango de la función:">
-                          <font>
-                              <Font name="Comic Sans MS Bold" size="20.0" fx:id="x1" />
-                          </font>
-                      </Label>
-                      <TextField fx:id="rangoMin" layoutX="265.0" layoutY="98.0" prefWidth="73.0" />
-                      <TextField fx:id="rangoMax" layoutX="347.0" layoutY="98.0" prefWidth="73.0" />
-                      <Label font="$x1" layoutX="440.0" layoutY="96.0" text="Función:" />
-                      <ChoiceBox fx:id="choiceFun" layoutX="520.0" layoutY="96.0" prefWidth="73.0">
-                          <items>
-                              <FXCollections fx:factory="observableArrayList">
-                                  <String fx:value="x" />
-                                  <String fx:value="x^2" />
-                                  <String fx:value="x^3" />
-                                  <String fx:value="x^4" />
-                                  <String fx:value="x^5" />
-                              </FXCollections>
-                          </items>
-                      </ChoiceBox>
-                  </children>
-                  <stylesheets>
-                      <URL value="@style/estilosCSS.css" />
-                  </stylesheets>
-              </AnchorPane>
-          </children>
-       </Pane>
-       <HBox alignment="CENTER_RIGHT" layoutX="140.0" layoutY="571.0" prefHeight="30.0" prefWidth="1060.0" style="-fx-background-color: gainsboro;">
-          <children>
-              <Label fx:id="clock" prefHeight="20.0" text="Label">
-                  <HBox.margin>
-                      <Insets right="30.0" />
-                  </HBox.margin>
-              </Label>
-          </children>
-       </HBox>
-   </children>
+    <VBox alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="139.0" spacing="0.0"
+          styleClass="side-menu-bar" stylesheets="@style/style.css">
+        <padding>
+            <Insets bottom="3.0"/>
+        </padding>
+        <Region prefHeight="23.0" prefWidth="160.0"/>
+        <ImageView fitHeight="126.0" fitWidth="131.25" pickOnBounds="true" preserveRatio="true">
+            <Image url="@img/uni.png"/>
+        </ImageView>
+        <Region prefHeight="23.0" prefWidth="160.0"/>
+        <Button fx:id="file" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#fileClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
+                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" pickOnBounds="true"
+                           preserveRatio="true">
+                    <Image url="@img/file.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip
+                        text="Archivo de datos: está opción podrá revisar la información generada por los sensores."/>
+            </tooltip>
+        </Button>
+        <Button fx:id="temp" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#tempClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
+                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#tempClicked"
+                           pickOnBounds="true" preserveRatio="true">
+                    <Image url="@img/temp.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Temperatura: Muestra los registros del monitoreo de temperatura."/>
+            </tooltip>
+        </Button>
+        <Button fx:id="pre" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#pressureClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover"
+                prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true"
+                           onMouseClicked="#pressureClicked" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@img/pressure.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Presión: Mestra los registro del monitoreo de presión."/>
+            </tooltip>
+        </Button>
+        <Button fx:id="stat" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#statClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
+                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#statClicked"
+                           pickOnBounds="true" preserveRatio="true">
+                    <Image url="@img/stat.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Estadísticas: Muestra un resumen de los monitoreos de presion y temperatura."/>
+            </tooltip>
+        </Button>
+        <Button fx:id="set" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#settingsClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover"
+                prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true"
+                           onMouseClicked="#settingsClicked" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@img/settings.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Configuracion: Herramientas del sistema en general."/>
+            </tooltip>
+        </Button>
+        <Button fx:id="help" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#helpClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
+                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" pickOnBounds="true"
+                           preserveRatio="true">
+                    <Image url="@img/help.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Ayuda: Brinda soporte para la utilización del sistema."/>
+            </tooltip>
+        </Button>
+        <Button contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false" onMouseClicked="#exitClicked"
+                prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#exitClicked"
+                           pickOnBounds="true" preserveRatio="true">
+                    <Image url="@img/exit.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+    </VBox>
+    <Pane fx:id="containerPane" layoutX="140.0" prefHeight="570.0" prefWidth="1017.0" AnchorPane.bottomAnchor="30.0"
+          AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="0.0">
+        <Text fontSmoothingType="LCD" layoutX="103.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              styleClass="toptext" text="LABORATORIO DE ÓPTICA APLICADA"/>
+        <AnchorPane id="AnchorPane" fx:id="chartArea" layoutX="23.0" layoutY="70.0" prefHeight="280.0"
+                    prefWidth="872.0" stylesheets="@style/CurveFittedChart.css">
+        </AnchorPane>
+    </Pane>
+    <HBox alignment="CENTER_RIGHT" layoutX="140.0" layoutY="571.0" prefHeight="30.0" prefWidth="1060.0"
+          style="-fx-background-color: gainsboro;">
+        <Label fx:id="clock" prefHeight="20.0" text="Label">
+            <HBox.margin>
+                <Insets right="30.0"/>
+            </HBox.margin>
+        </Label>
+    </HBox>
 </AnchorPane>

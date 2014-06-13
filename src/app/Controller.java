@@ -1,7 +1,9 @@
 package app;
 
+import app.chart.CurvedFittedAreaChart;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
@@ -21,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import org.controlsfx.control.HiddenSidesPane;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.dialog.DialogStyle;
@@ -28,6 +30,7 @@ import org.controlsfx.dialog.Dialogs;
 
 import java.net.URL;
 import java.time.LocalTime;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -62,9 +65,8 @@ public class Controller implements Initializable {
     @FXML private Button button;
 
     // Declaramos el "LineChart" donde pintaremos la funcion
-    @FXML private LineChart<Double, Double> graph;
-    @FXML private NumberAxis x;
-    @FXML private NumberAxis y;
+    //@FXML private LineChart<Double, Double> graph;
+    @FXML private AnchorPane chartArea;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,16 +82,47 @@ public class Controller implements Initializable {
 
         HiddenSidesPane hiddenSidesPane = new HiddenSidesPane();
 
+
         SideNode left = new SideNode("Left", Side.LEFT, hiddenSidesPane);
         left.setStyle("-fx-background-color: rgba(0,0,0,.25);");
+        left.setText("texto texto texto");
         hiddenSidesPane.setLeft(left);
         hiddenSidesPane.setPrefSize(200, 570);
         containerPane.getChildren().add(hiddenSidesPane);
 
-        // Inicializamos el rango sobre el que pintaremos la funcion.
-        rangoMin.setText("-10");
-        rangoMax.setText("10");
-        choiceFun.setValue("x");
+        CurvedFittedAreaChart chart = new CurvedFittedAreaChart(
+                new NumberAxis(0,20000,2500), new NumberAxis(0,1000,200));
+        chart.setLegendVisible(false);
+        chart.setHorizontalGridLinesVisible(false);
+        chart.setVerticalGridLinesVisible(false);
+        chart.setAlternativeColumnFillVisible(false);
+        chart.setAlternativeRowFillVisible(false);
+        final XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
+        series.getData().addAll(
+                new XYChart.Data<Number,Number>(0       ,950),
+                new XYChart.Data<Number,Number>(1000    ,570),
+                new XYChart.Data<Number,Number>(2000    ,100),
+                new XYChart.Data<Number,Number>(3500    ,140),
+                new XYChart.Data<Number,Number>(5000    ,200),
+                new XYChart.Data<Number,Number>(7500    ,180),
+                new XYChart.Data<Number,Number>(10000   ,100)
+        );
+        chart.getData().add(series);
+        chartArea.getChildren().add(chart);
+
+        // Change the data over time to represent real live data
+        Timeline dataModification = new Timeline();
+        dataModification.setCycleCount(Timeline.INDEFINITE);
+        dataModification.getKeyFrames().setAll(new KeyFrame(Duration.millis(500), new EventHandler<ActionEvent>() {
+            Random r = new Random();
+            @Override public void handle(ActionEvent arg0) {
+                ObservableList<XYChart.Data<Number, Number>> data = series.getData();
+                int dataIndex = r.nextInt(data.size());
+                XYChart.Data<Number, Number> dataItem = data.get(dataIndex);
+                dataItem.setYValue(Math.min(Math.max(dataItem.getYValue().intValue() + r.nextInt(200) - 100, 100), 1000));
+            }
+        }));
+        dataModification.play();
     }
 
     @FXML
@@ -215,71 +248,6 @@ public class Controller implements Initializable {
         }
 
     }
-
-    ///Para pintar la grafica
-    /**
-     * Método que se ejecuta al pulsar el boton "Dibujar Funcion"
-     * @param event
-     */
-    @FXML private void AccionPintar(ActionEvent event) {
-        int grado = getGradoFuncion(choiceFun.getValue().toString());
-        pintarGrafica(Integer.parseInt(rangoMin.getText()), Integer.parseInt(rangoMax.getText()), grado);
-    }
-
-    /**
-     * Método que devuelve el grado de la función a dibujar
-     * @param funcion
-     * @return grado de la funcion
-     */
-    private static int getGradoFuncion(String funcion){
-        if (funcion.equals("x"))
-            return 1;
-        else if(funcion.equals("x^2"))
-            return 2;
-        else if (funcion.equals("x^3"))
-            return 3;
-        else if (funcion.equals("x^4"))
-            return 4;
-        else
-            return 5;
-    }
-
-
-    /**
-     * Método para pintar la gráfica
-     * @param min
-     * @param max
-     * @param grado
-     */
-    private void pintarGrafica (int min, int max, int grado){
-
-        // Creamos un ObservableList para guardar los puntos que pintaremos en la gráfica
-        ObservableList<XYChart.Series<Double, Double>> lineChartData = FXCollections.observableArrayList();
-
-        // Instanciamos un punto a pintar
-        LineChart.Series<Double, Double> series = new LineChart.Series<Double, Double>();
-
-        // Imprimimos la función que vamos a pintar como etiqueta
-        series.setName("f(x^"+grado+")");
-
-        // obtenemos los puntos a pintar. Daros cuenta que los puntos a pintar estan definidos
-        // por el valor de 'x' y el resultado de 'f(x)', siendo f(x)=Math.pow(x, grado) = x^grado
-        for (double i = min; i<max; i=i+0.1){
-            series.getData().add(new XYChart.Data<Double, Double>(i, Math.pow(i, grado)));
-        }
-
-        // Guardamos todos los puntos de la función que hemos obtenido
-        lineChartData.add(series);
-
-        // Si No quereis que se pinten los puntos, poner a false
-        graph.setCreateSymbols(false);
-
-
-        // Ponemos los puntos en la gráfica
-        graph.setData(lineChartData);
-        graph.createSymbolsProperty();
-    }
-
 
     class SideNode extends Label {
 
