@@ -22,18 +22,17 @@
             <Image url="@img/uni.png"/>
         </ImageView>
         <Region prefHeight="23.0" prefWidth="160.0"/>
-        <Button fx:id="file" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
-                onMouseClicked="#fileClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
-                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
+        <Button fx:id="stat" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#statClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
+                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
             <graphic>
-                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" pickOnBounds="true"
-                           preserveRatio="true">
-                    <Image url="@img/file.png"/>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#statClicked"
+                           pickOnBounds="true" preserveRatio="true">
+                    <Image url="@img/stat.png"/>
                 </ImageView>
             </graphic>
             <tooltip>
-                <Tooltip
-                        text="Archivo de datos: está opción podrá revisar la información generada por los sensores."/>
+                <Tooltip text="Estadísticas: Muestra un resumen de los monitoreos de presion y temperatura."/>
             </tooltip>
         </Button>
         <Button fx:id="temp" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
@@ -62,19 +61,6 @@
                 <Tooltip text="Presión: Mestra los registro del monitoreo de presión."/>
             </tooltip>
         </Button>
-        <Button fx:id="stat" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
-                onMouseClicked="#statClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
-                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
-            <graphic>
-                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" onMouseClicked="#statClicked"
-                           pickOnBounds="true" preserveRatio="true">
-                    <Image url="@img/stat.png"/>
-                </ImageView>
-            </graphic>
-            <tooltip>
-                <Tooltip text="Estadísticas: Muestra un resumen de los monitoreos de presion y temperatura."/>
-            </tooltip>
-        </Button>
         <Button fx:id="set" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
                 onMouseClicked="#settingsClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover"
                 prefHeight="50.0" prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
@@ -101,6 +87,20 @@
                 <Tooltip text="Ayuda: Brinda soporte para la utilización del sistema."/>
             </tooltip>
         </Button>
+        <Button fx:id="info" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
+                onMouseClicked="#infoClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
+                prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER" textOverrun="CLIP" wrapText="false">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" mouseTransparent="true" pickOnBounds="true"
+                           preserveRatio="true">
+                    <Image url="@img/info.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip
+                        text="Archivo de datos: está opción podrá revisar la información generada por los sensores."/>
+            </tooltip>
+        </Button>
         <Button fx:id="close" contentDisplay="TOP" graphicTextGap="1.0" mnemonicParsing="false"
                 onMouseClicked="#exitClicked" onMouseEntered="#btnHover" onMouseExited="#btnHover" prefHeight="50.0"
                 prefWidth="250.0" styleClass="tb-btn" textAlignment="CENTER">
@@ -117,7 +117,7 @@
         <Text fontSmoothingType="LCD" layoutX="283.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0"
               styleClass="toptext" text="LABORATORIO DE ÓPTICA APLICADA"/>
         <AnchorPane id="AnchorPane" fx:id="chartArea" layoutX="23.0" layoutY="70.0" prefHeight="280.0"
-                    prefWidth="872.0" stylesheets="@style/CurveFittedChart.css">
+                    prefWidth="917.0" stylesheets="@style/CurveFittedChart.css">
         </AnchorPane>
     </Pane>
     <HBox alignment="CENTER_RIGHT" layoutX="140.0" layoutY="571.0" prefHeight="30.0" prefWidth="1060.0"

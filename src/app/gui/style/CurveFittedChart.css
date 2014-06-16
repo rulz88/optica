@@ -3,7 +3,7 @@
 }
 
 .chart-plot-background {
-    -fx-background-color: red;
+    -fx-background-color: blue;
     -fx-background-image: url("chart-background-2.png"), url("graph-gridlines.png");
     -fx-background-size: cover, auto;
     -fx-background-repeat: no-repeat, repeat;

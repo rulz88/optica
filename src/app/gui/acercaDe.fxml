@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0"
-      prefWidth="583.0" styleClass="transparente" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0"
+      prefWidth="550.0" styleClass="transparente" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8">
     <Label layoutX="194.0" layoutY="33.0" styleClass="fuente1" text="LABORATORIO DE OPTICA APLICADA"/>
-    <Label layoutX="31.0" layoutY="108.0" styleClass="fuente2"
-           text="Esta apliación fue desarrollada para monitoriar los cambios de temperatura &#10;y presión en el ambiente.&#10;"/>
-    <Label layoutX="31.0" layoutY="146.0" styleClass="fuente2"
-           text="Este proyecto fue elaborado por:&#10;&#10;Brena Luis Rosa Isela&#10;Peniel Ruíz López&#10;Jhoanna Ángel Sánchez Jarquin&#10;&#10;Bajo la dirección del Dr. Víctor Iván Moreno Oliva , jefe de la dirección de &#10;estudios de posgrados de la Universidad del Istmo Campus Tehuantepec.&#10;"/>
+    <Label layoutX="31.0" layoutY="108.0" styleClass="fuente2" text="&#10;"/>
+    <Label layoutX="28.0" layoutY="108.0" prefHeight="217.0" prefWidth="492.0" styleClass="fuente2"
+           text="Esta aplicación fue desarrollada por:&#10;&#10;Rosa Isela Brena Luis&#10;Peniel Ruíz López&#10;Jhoanna Ángel Sánchez Jarquin&#10;&#10;Bajo la dirección del Dr. Víctor Iván Moreno Oliva, Jefe de la Divsión de &#10;Estudios de Posgrado de la Universidad del Istmo Campus Tehuantepec &#10;para monitorear los cambios de temperatura y presión en el prototipo &#10;de colector solar.&#10;"/>
     <ImageView fitHeight="90.0" fitWidth="150.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true"/>
-    <Hyperlink layoutX="31.0" layoutY="323.0" text="www.unistmo.edu.mx/laboratorioOptica"/>
+    <Hyperlink layoutX="31.0" layoutY="337.0" text="www.unistmo.edu.mx/laboratorioOptica"/>
+    <Button layoutX="487.0" layoutY="336.0" mnemonicParsing="false" text="Cerrar"/>
 </Pane>

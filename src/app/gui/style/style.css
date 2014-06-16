@@ -9,20 +9,14 @@
 
 .fuente1 {
      -fx-font-family: "NisePico";
-      -fx-font-size: 20px;
-     color:red;
-     letter-spacing: 0;
-     text-align:center;
-     text-shadow: 3px 3px 7px #111;
+     -fx-font-size: 20px;
+     -fx-text-fill: white;
 }
 
 .fuente2{
      -fx-font-family: "Century Gothic";
-      -fx-font-size: 14px;
-     color:red;
-     letter-spacing: 0;
-     text-align:center;
-     text-shadow: 3px 3px 7px #111;
+     -fx-font-size: 14px;
+     -fx-text-fill: white;
 }
 .transparente{
     -fx-background-color: rgba(50, 50, 50, 0.5);

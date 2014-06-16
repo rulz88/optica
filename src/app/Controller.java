@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
@@ -22,12 +24,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.controlsfx.control.HiddenSidesPane;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.dialog.DialogStyle;
 import org.controlsfx.dialog.Dialogs;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.Random;
@@ -36,6 +42,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import static javafx.fxml.FXMLLoader.load;
 import static org.controlsfx.dialog.Dialog.Actions.NO;
 import static org.controlsfx.dialog.Dialog.Actions.YES;
 
@@ -49,7 +56,7 @@ public class Controller implements Initializable {
     @FXML private AnchorPane ap;
     @FXML private Pane containerPane;
 
-    @FXML private Button file;
+    @FXML private Button info;
     @FXML private Button temp;
     @FXML private Button pre;
     @FXML private Button stat;
@@ -68,6 +75,7 @@ public class Controller implements Initializable {
     // Declaramos el "LineChart" donde pintaremos la funcion
     //@FXML private LineChart<Double, Double> graph;
     @FXML private AnchorPane chartArea;
+    protected Stage acercade;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,6 +88,23 @@ public class Controller implements Initializable {
                 });
             }
         }, 0, 1, TimeUnit.SECONDS);
+
+        // Panel para el Acerca De
+        acercade = new Stage();
+        Scene scene;
+        acercade.setResizable(false);
+        acercade.initStyle(StageStyle.UNDECORATED);
+        acercade.centerOnScreen();
+        Parent root = null;
+        try {
+            root = load(getClass().getResource("gui/acercaDe.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert root != null;
+        root.setOpacity(.25);
+        scene = new Scene(root);
+        acercade.setScene(scene);
 
         HiddenSidesPane hiddenSidesPane = new HiddenSidesPane();
 
@@ -136,12 +161,11 @@ public class Controller implements Initializable {
         ImageView iv = (ImageView) btn.getGraphic();
 
         // Cada sentencia if verifica los id
-        if(id.equals("file")) {
-            // Segun si el mouse entra o sale del boton cambia el icono
+        if(id.equals("stat")) {
             if(mouseEvent.getEventType() == MouseEvent.MOUSE_ENTERED)
-                src = "gui/img/file2.png";
+                src = "gui/img/stat2.png";
             else if(mouseEvent.getEventType() == MouseEvent.MOUSE_EXITED)
-                src = "gui/img/file.png";
+                src = "gui/img/stat.png";
         }
 
         if(id.equals("temp")) {
@@ -158,13 +182,6 @@ public class Controller implements Initializable {
                 src = "gui/img/pressure.png";
         }
 
-        if(id.equals("stat")) {
-            if(mouseEvent.getEventType() == MouseEvent.MOUSE_ENTERED)
-                src = "gui/img/stat2.png";
-            else if(mouseEvent.getEventType() == MouseEvent.MOUSE_EXITED)
-                src = "gui/img/stat.png";
-        }
-
         if(id.equals("set")) {
             if(mouseEvent.getEventType() == MouseEvent.MOUSE_ENTERED)
                 src = "gui/img/settings2.png";
@@ -179,6 +196,14 @@ public class Controller implements Initializable {
                 src = "gui/img/help.png";
         }
 
+        if(id.equals("info")) {
+            // Segun si el mouse entra o sale del boton cambia el icono
+            if(mouseEvent.getEventType() == MouseEvent.MOUSE_ENTERED)
+                src = "gui/img/info2.png";
+            else if(mouseEvent.getEventType() == MouseEvent.MOUSE_EXITED)
+                src = "gui/img/info.png";
+        }
+
         if(id.equals("close")) {
             if(mouseEvent.getEventType() == MouseEvent.MOUSE_ENTERED)
                 src = "gui/img/exit2.png";
@@ -191,9 +216,44 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void fileClicked(MouseEvent mouseEvent) {
-        //TODO : Functionality
-        System.out.println("file");
+    private void infoClicked(MouseEvent mouseEvent) {
+        StackPane glass = new StackPane();
+        Button close = new Button("Cerrar");
+        Label title = new Label("LABORATORIO DE OPTICA APLICADA");
+        Label info = new Label("Esta aplicación fue desarrollada por:\n" +
+                "\n" +
+                "Rosa Isela Brena Luis\n" +
+                "Peniel Ruíz López\n" +
+                "Jhoanna Ángel Sánchez Jarquin\n" +
+                "\n" +
+                "Bajo la dirección del Dr. Víctor Iván Moreno Oliva, Jefe de la Divsión de \n" +
+                "Estudios de Posgrado de la Universidad del Istmo Campus Tehuantepec \n" +
+                "para monitorear los cambios de temperatura y presión en el prototipo \n" +
+                "de colector solar.\n");
+
+        title.setLayoutX(194);
+        title.setLayoutY(33);
+        title.setStyle("-fx-font-family: \"NisePico\";\n" +
+                "     -fx-font-size: 20px;\n" +
+                "     -fx-text-fill: white;");
+
+        info.setPrefSize(492, 217);
+        info.setLayoutX(28);
+        info.setLayoutY(108);
+        info.setStyle("-fx-font-family: \"Century Gothic\";\n" +
+                "     -fx-font-size: 14px;\n" +
+                "     -fx-text-fill: white;");
+
+        glass.setPrefSize(550, 370);
+        close.setLayoutX(487);
+        close.setLayoutY(336);
+        glass.getChildren().add(title);
+        glass.getChildren().add(info);
+        glass.getChildren().add(close);
+
+        glass.setStyle("-fx-background-color: rgba(50, 50, 50, 0.5); " +
+                       "-fx-background-radius: 10;");
+        containerPane.getChildren().add(glass);
     }
 
     @FXML
