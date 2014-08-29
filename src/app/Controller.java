@@ -1,11 +1,6 @@
 package app;
 
-import app.chart.CurvedFittedAreaChart;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,8 +8,6 @@ import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -25,9 +18,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import org.controlsfx.control.HiddenSidesPane;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.dialog.DialogStyle;
@@ -36,7 +30,6 @@ import org.controlsfx.dialog.Dialogs;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -64,6 +57,8 @@ public class Controller implements Initializable {
     @FXML private Button help;
     @FXML private Button close;
 
+    @FXML private WebView browser;
+
     @FXML private Label clock;
 
     //Variables para las graficas
@@ -74,7 +69,7 @@ public class Controller implements Initializable {
 
     // Declaramos el "LineChart" donde pintaremos la funcion
     //@FXML private LineChart<Double, Double> graph;
-    @FXML private AnchorPane chartArea;
+    //@FXML private AnchorPane chartArea;
     protected Stage acercade;
 
     @Override
@@ -88,6 +83,11 @@ public class Controller implements Initializable {
                 });
             }
         }, 0, 1, TimeUnit.SECONDS);
+
+        //Grafica plotly
+        WebEngine webEngine = browser.getEngine();
+        webEngine.load("http://unistmosolar.url.ph/Optica/plot.html");
+        //webEngine.load("http://www.google.com");
 
         // Panel para el Acerca De
         acercade = new Stage();
@@ -116,7 +116,7 @@ public class Controller implements Initializable {
         hiddenSidesPane.setPrefSize(200, 570);
         containerPane.getChildren().add(hiddenSidesPane);
 
-        CurvedFittedAreaChart chart = new CurvedFittedAreaChart(
+        /*CurvedFittedAreaChart chart = new CurvedFittedAreaChart(
                 new NumberAxis(0,20000,2500), new NumberAxis(0,1000,200));
         chart.setLegendVisible(false);
         chart.setHorizontalGridLinesVisible(false);
@@ -134,10 +134,10 @@ public class Controller implements Initializable {
                 new XYChart.Data<Number,Number>(10000   ,100)
         );
         chart.getData().add(series);
-        chartArea.getChildren().add(chart);
+        chartArea.getChildren().add(chart);*/
 
         // Change the data over time to represent real live data
-        Timeline dataModification = new Timeline();
+        /*Timeline dataModification = new Timeline();
         dataModification.setCycleCount(Timeline.INDEFINITE);
         dataModification.getKeyFrames().setAll(new KeyFrame(Duration.millis(500), new EventHandler<ActionEvent>() {
             Random r = new Random();
@@ -148,7 +148,7 @@ public class Controller implements Initializable {
                 dataItem.setYValue(Math.min(Math.max(dataItem.getYValue().intValue() + r.nextInt(200) - 100, 100), 1000));
             }
         }));
-        dataModification.play();
+        dataModification.play();*/
     }
 
     @FXML
