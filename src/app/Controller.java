@@ -17,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -71,6 +70,8 @@ public class Controller implements Initializable {
     //@FXML private LineChart<Double, Double> graph;
     //@FXML private AnchorPane chartArea;
     protected Stage acercade;
+    private String url = "http://unistmosolar.url.ph/Optica/plot.html";
+    private WebEngine webEngine;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -85,8 +86,8 @@ public class Controller implements Initializable {
         }, 0, 1, TimeUnit.SECONDS);
 
         //Grafica plotly
-        WebEngine webEngine = browser.getEngine();
-        webEngine.load("http://unistmosolar.url.ph/Optica/plot.html");
+        webEngine = browser.getEngine();
+        webEngine.load(url);
         //webEngine.load("http://www.google.com");
 
         // Panel para el Acerca De
@@ -216,50 +217,24 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void infoClicked(MouseEvent mouseEvent) {
-        StackPane glass = new StackPane();
-        Button close = new Button("Cerrar");
-        Label title = new Label("LABORATORIO DE OPTICA APLICADA");
-        Label info = new Label("Esta aplicación fue desarrollada por:\n" +
-                "\n" +
-                "Rosa Isela Brena Luis\n" +
-                "Peniel Ruíz López\n" +
-                "Jhoanna Ángel Sánchez Jarquin\n" +
-                "\n" +
-                "Bajo la dirección del Dr. Víctor Iván Moreno Oliva, Jefe de la Divsión de \n" +
-                "Estudios de Posgrado de la Universidad del Istmo Campus Tehuantepec \n" +
-                "para monitorear los cambios de temperatura y presión en el prototipo \n" +
-                "de colector solar.\n");
+    private void infoClicked(MouseEvent mouseEvent) throws IOException {
 
-        title.setLayoutX(194);
-        title.setLayoutY(33);
-        title.setStyle("-fx-font-family: \"NisePico\";\n" +
-                "     -fx-font-size: 20px;\n" +
-                "     -fx-text-fill: white;");
-
-        info.setPrefSize(492, 217);
-        info.setLayoutX(28);
-        info.setLayoutY(108);
-        info.setStyle("-fx-font-family: \"Century Gothic\";\n" +
-                "     -fx-font-size: 14px;\n" +
-                "     -fx-text-fill: white;");
-
-        glass.setPrefSize(550, 370);
-        close.setLayoutX(487);
-        close.setLayoutY(336);
-        glass.getChildren().add(title);
-        glass.getChildren().add(info);
-        glass.getChildren().add(close);
-
-        glass.setStyle("-fx-background-color: rgba(50, 50, 50, 0.5); " +
-                       "-fx-background-radius: 10;");
-        containerPane.getChildren().add(glass);
+        Scene scene;
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        Parent root = load(getClass().getResource("gui/acerca.fxml"));
+        stage.setTitle("Acerca De");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     private void tempClicked(MouseEvent mouseEvent) {
         //TODO : Functionality
-        System.out.println("temp");
+        url = "http://unistmosolar.url.ph/Optica/plot.html";
+        webEngine.load(url);
     }
 
     @FXML
@@ -271,7 +246,8 @@ public class Controller implements Initializable {
     @FXML
     private void statClicked(MouseEvent mouseEvent) {
         //TODO : Functionality
-        System.out.println("stat");
+        url = "http://unistmosolar.url.ph/Optica/stat.php";
+        webEngine.load(url);
     }
 
     @FXML
