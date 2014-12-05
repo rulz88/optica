@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="Acerca" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AcercaDeController">
 <children><Text layoutX="194.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de monitoreo para &#10;un concentador solar de&#10; canal parabólico" textAlignment="CENTER">
 <font>
 <Font name="Arial Black" size="14.0" />
-</font></Text><Button layoutX="498.0" layoutY="347.0" mnemonicParsing="false" text="Cerrar" textAlignment="CENTER">
+</font></Text><Button fx:id="salir" layoutX="498.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#getOut" text="Cerrar" textAlignment="CENTER">
 <graphic><ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@img/close24.png" />
@@ -21,7 +21,7 @@
 </image></ImageView><ImageView fitHeight="80.0" fitWidth="184.0" layoutX="434.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@img/logo.png" />
-</image></ImageView><Hyperlink layoutX="29.3017578125" layoutY="351.5" text="www.unistmo.edu.mx/~lapoptica" /><Separator layoutX="24.0" layoutY="117.0" prefHeight="0.0" prefWidth="572.0" /><Label layoutX="29.0" layoutY="177.0" prefHeight="121.0" prefWidth="562.0" text="Esta aplicación fue desarrollada por:&#10;Rosa Isela Brena Luis, Peniel Ruíz López y Jhoanna Ángel Sánchez Jarquin, bajo la dirección del &#10;Dr. Víctor Iván Moreno Oliva, Jefe de la Divsión de Estudios de Posgrado de la Universidad del Istmo &#10;Campus Tehuantepec.&#10;El sistema consiste en monitorear los cambios de temperatura en el prototipo de colector solar. &#10;Y almacenar esos datos en un servidor web para posteriormente graficarlos.">
+</image></ImageView><Hyperlink layoutX="29.3017578125" layoutY="351.5" onMouseClicked="#link" text="www.unistmo.edu.mx/~lapoptica" /><Separator layoutX="24.0" layoutY="117.0" prefHeight="0.0" prefWidth="572.0" /><Label layoutX="29.0" layoutY="177.0" prefHeight="121.0" prefWidth="562.0" text="Esta aplicación fue desarrollada por:&#10;Rosa Isela Brena Luis, Peniel Ruíz López y Jhoanna Ángel Sánchez Jarquin, bajo la dirección del &#10;Dr. Víctor Iván Moreno Oliva, Jefe de la Divsión de Estudios de Posgrado de la Universidad del Istmo &#10;Campus Tehuantepec y el Dr. Edwin Román Hernández, adscrito a  adscrito al Instituto de Estudios de &#10;de la Energía de la misma.&#10;El sistema consiste en monitorear los cambios de temperatura en el prototipo de colector solar. &#10;Y almacenar esos datos en un servidor web para posteriormente graficarlos.">
 <font>
 <Font name="Arial Unicode MS" size="12.0" />
 </font></Label>

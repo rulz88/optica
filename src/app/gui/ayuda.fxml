@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane id="Acerca" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AcercaDeController">
+<children><Text layoutX="173.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de monitoreo para un &#10;concentrador solar de canal parabólico" textAlignment="CENTER">
+<font>
+<Font name="Arial Black" size="14.0" />
+</font></Text><Button fx:id="salir" layoutX="583.0" layoutY="488.0" mnemonicParsing="false" onMouseClicked="#getOut" text="Cerrar" textAlignment="CENTER">
+<graphic><ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/close24.png" />
+</image></ImageView>
+</graphic></Button><ImageView fitHeight="89.0" fitWidth="92.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/unilogo2.png" />
+</image></ImageView><ImageView fitHeight="76.0" fitWidth="159.0" layoutX="503.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/logo.png" />
+</image></ImageView><Hyperlink layoutX="43.0" layoutY="493.0" onMouseClicked="#link" text="www.unistmo.edu.mx/~lapoptica" /><Separator layoutX="12.0" layoutY="107.0" prefHeight="10.0" prefWidth="623.0" /><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/stat.png" />
+</image></ImageView><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" /><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" /><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/pressure.png" />
+</image></ImageView><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="50.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/temp.png" />
+</image></ImageView><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/help.png" />
+</image></ImageView><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/info.png" />
+</image></ImageView><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/exit.png" />
+</image></ImageView><Label layoutX="89.0" layoutY="135.0" prefHeight="46.0" prefWidth="594.0" text="Muestra los datos de acuerdo al monitoreo actual, es decir se le presenta al usuario &#10;un tabla con los datos actuales del sensado. Se pretende como trabajo a futuro mostrar&#10;el promedio de la temperatura del colector.">
+<font>
+<Font name="Batang" size="14.0" />
+</font></Label><Label layoutX="89.0" layoutY="194.0" prefHeight="46.0" prefWidth="594.0" text="Al presionar esta opción, se muestra en pantalla la gráfica correspondiente&#10;a los datos que el sensor arroje en tiempo real.">
+<font>
+<Font name="Batang" size="14.0" />
+</font>
+</Label><Label layoutX="89.0" layoutY="252.0" prefHeight="46.0" prefWidth="594.0" text="Está opción es parecida a la anterior solo que ahora es para el sensor de presión,&#10;para este proyecto no está implementado el funcionamiento de dicho sensor; pero&#10;cabe mencionar que puede añadirse sin ningún problema.">
+<font>
+<Font name="Batang" size="14.0" />
+</font>
+</Label><Label layoutX="89.0" layoutY="308.0" prefHeight="46.0" prefWidth="594.0" text="Es una pequeña ayuda que indica cómo usar el sistema y algunas descripciones sobre&#10;cada una de las opciones del menú.&#10;&#10;">
+<font>
+<Font name="Batang" size="14.0" />
+</font>
+</Label><Label layoutX="89.0" layoutY="365.0" prefHeight="46.0" prefWidth="594.0" text="Muestra información acerca del laboratorio de óptica de la Universidad del Istmo.&#10;Y también se menciona el equipo de desarrolladores del sistema.&#10;&#10;">
+<font>
+<Font name="Batang" size="14.0" />
+</font>
+</Label><Label layoutX="89.0" layoutY="417.0" prefHeight="46.0" prefWidth="594.0" text="Simplemente en esta opción se le pregunta a través de un alerta al usuario si&#10;realmente desea cerrar la aplicación.&#10;&#10;">
+<font>
+<Font name="Batang" size="14.0" />
+</font>
+</Label>
+</children></Pane>

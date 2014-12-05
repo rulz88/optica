@@ -57,7 +57,6 @@ public class Controller implements Initializable {
     @FXML private Button close;
 
     @FXML private WebView browser;
-
     @FXML private Label clock;
 
     //Variables para las graficas
@@ -98,7 +97,7 @@ public class Controller implements Initializable {
         acercade.centerOnScreen();
         Parent root = null;
         try {
-            root = load(getClass().getResource("gui/acercaDe.fxml"));
+            root = load(getClass().getResource("gui/acerca.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -225,6 +224,7 @@ public class Controller implements Initializable {
         stage.centerOnScreen();
         Parent root = load(getClass().getResource("gui/acerca.fxml"));
         stage.setTitle("Acerca De");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("gui/img/info.png")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -257,9 +257,19 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void helpClicked(MouseEvent mouseEvent) {
+    private void helpClicked(MouseEvent mouseEvent)  throws IOException {
         //TODO : Functionality
         System.out.println("help");
+        Scene scene;
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        Parent root = load(getClass().getResource("gui/ayuda.fxml"));
+        stage.setTitle("Ayuda");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("gui/img/help.png")));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private Dialogs configureSampleDialog(Dialogs dialog) {
