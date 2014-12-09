@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +19,7 @@ import java.util.ResourceBundle;
 public class AyudaController implements Initializable {
 
     @FXML private Button salir;
-    private String pag_lab = "http://www.unistmo.edu.mx/~laboptica";
+    private String helpdoc = "manual.pdf";
 
     @FXML
     private void getOut(MouseEvent event) {
@@ -36,9 +38,9 @@ public class AyudaController implements Initializable {
     }
 
     @FXML
-    private  void  link(){
+    private  void  abrirManual(MouseEvent event){
         try {
-            java.awt.Desktop.getDesktop().browse(java.net.URI.create(pag_lab));
+            Desktop.getDesktop().open(new File("manual.pdf"));
         } catch (IOException e) {
             e.printStackTrace();
         }

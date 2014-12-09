@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane id="Acerca" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AcercaDeController">
+<Pane id="Acerca" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AyudaController">
 <children><Text layoutX="173.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de monitoreo para un &#10;concentrador solar de canal parabólico" textAlignment="CENTER">
 <font>
 <Font name="Arial Black" size="14.0" />
@@ -21,7 +21,7 @@
 </image></ImageView><ImageView fitHeight="76.0" fitWidth="159.0" layoutX="503.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@img/logo.png" />
-</image></ImageView><Hyperlink layoutX="43.0" layoutY="493.0" onMouseClicked="#link" text="www.unistmo.edu.mx/~lapoptica" /><Separator layoutX="12.0" layoutY="107.0" prefHeight="10.0" prefWidth="623.0" /><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+</image></ImageView><Hyperlink layoutX="43.0" layoutY="493.0" onMouseClicked="#abrirManual" text="Ver Manual Completo" /><Separator layoutX="12.0" layoutY="107.0" prefHeight="10.0" prefWidth="623.0" /><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@img/stat.png" />
 </image></ImageView><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" /><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" /><ImageView fitHeight="32.0" fitWidth="32.0" layoutX="43.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">

@@ -300,8 +300,29 @@ public class Controller implements Initializable {
             // Salir de la aplicacion
             Platform.exit();
         }
-
     }
+
+   /* @FXML
+    private void conexionClicked(MouseEvent mouseEvent) {
+        // Al cerrar apaga el ejecutor de tareas (hilos)
+       scheduleTaskExecutor.shutdown();
+
+        // Construye un dialogo de confirmacion
+        Action response = configureSampleDialog(
+                Dialogs.create()
+                        .title("Confirmación")
+                        .masthead(null)
+                        .message(
+                                "Sin Internet, ¿Desea permanecer en la red local?")
+        )
+                .actions(new Action[]{YES, NO})
+                .showConfirm();
+
+        //System.out.println("response: " + response);
+        if(response.toString().equals("NO")) {
+            // Salir de la aplicacion
+            Platform.exit();
+        }*/
 
     class SideNode extends Label {
 
