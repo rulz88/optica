@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane id="Acerca" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AcercaDeController">
+<children><Text layoutX="194.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de monitoreo para &#10;un concentador solar de&#10; canal parabólico" textAlignment="CENTER">
+<font>
+<Font name="Arial Black" size="14.0" />
+</font></Text><Button fx:id="salir" layoutX="508.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#getOut" text="Cerrar" textAlignment="CENTER">
+<graphic><ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/close24.png" />
+</image></ImageView>
+</graphic></Button><ImageView fitHeight="89.0" fitWidth="92.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/unilogo2.png" />
+</image></ImageView><ImageView fitHeight="80.0" fitWidth="184.0" layoutX="434.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@img/logo.png" />
+</image></ImageView><Hyperlink layoutX="40.0" layoutY="420.0" onMouseClicked="#link" text="www.unistmo.edu.mx/~lapoptica" /><Separator layoutX="24.0" layoutY="117.0" prefHeight="0.0" prefWidth="572.0" /><TableView layoutX="37.0" layoutY="179.0" prefHeight="200.0" prefWidth="550.0">
+  <columns>
+    <TableColumn prefWidth="153.0" text="Fecha" /><TableColumn prefWidth="196.0" text="Temperatura Entrada (°C)" />
+    <TableColumn prefWidth="200.0" text="Temperatura Salida (°C)" />
+  </columns>
+</TableView><Button layoutX="40.1875" layoutY="137.5" mnemonicParsing="false" text="Iniciar toma de datos" /><Button layoutX="187.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Exportar a Excel" />
+</children></Pane>

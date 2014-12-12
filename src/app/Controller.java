@@ -251,9 +251,19 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void settingsClicked(MouseEvent mouseEvent) {
+    private void settingsClicked(MouseEvent mouseEvent)  throws IOException {
         //TODO : Functionality
-        System.out.println("sett");
+        System.out.println("Datos");
+        Scene scene;
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        Parent root = load(getClass().getResource("gui/datos.fxml"));
+        stage.setTitle("Datos");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("gui/img/help.png")));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
